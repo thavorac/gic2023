@@ -1,16 +1,17 @@
 <template>
   This is my first Vuejs Project!
-  <Button color="red" text="Hello"></Button>
-  <Button color="yellow" text="Shop Now"></Button>
-  <button>normal button</button>
+  <MyButton text="Hello" color="red"></MyButton>
+  <MyButton text="Shop" color="#aef"></MyButton>
+  <MyButton text="Cancel" color="blue"></MyButton>
+  <button>Test</button>
 </template>
 
 <script>
-import Button from "./components/Button.vue";
+import MyButton from "./components/MyButton.vue";
 export default {
   name: "App",
   components: {
-    Button,
+    MyButton,
   },
 };
 </script>
