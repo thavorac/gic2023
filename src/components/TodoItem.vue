@@ -2,7 +2,7 @@
   <li class="list pending" @click="toggleStatus(todo.id)">
     <input type="checkbox" :checked="todo.status == 'completed'" />
     <span class="task">{{ todo.task }}</span>
-    <i class="uil uil-trash"></i>
+    <i class="uil" :class="icon"></i>
   </li>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
     const todoStore = useTodoStore();
     return { todoStore };
   },
-  props: ["todo"],
+  props: ["todo", "icon"],
   methods: {
     toggleStatus(todoId) {
       this.todoStore.toggleStatus(todoId);

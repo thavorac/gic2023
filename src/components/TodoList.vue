@@ -1,6 +1,6 @@
 <template>
   <ul class="todoLists">
-    <TodoItem v-for="todo of todos" :todo="todo" />
+    <TodoItem v-for="todo of todos" icon="uil-adobe-alt" :todo="todo" />
   </ul>
 </template>
 <script>
