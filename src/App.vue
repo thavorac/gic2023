@@ -57,26 +57,73 @@
         >
         <a v-else class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
 
-        <a
+        <!-- option 3 -->
+        <RouterLink
+          to="/?category=technology"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('technology')"
-          href="#"
-          >Technology</a
+          >Technology</RouterLink
+        >
+
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'design',
+            },
+          }"
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('design')"
+          >Design</RouterLink
         >
         <a
           class="nav-item nav-link link-body-emphasis"
-          :class="isMenuActive('design')"
+          :class="isMenuActive('culture')"
           href="#"
-          >Design</a
+          >Culture</a
         >
-        <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Business</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('business')"
+          href="#"
+          >Business</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('politics')"
+          href="#"
+          >Politics</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('opinion')"
+          href="#"
+          >Opinion</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('science')"
+          href="#"
+          >Science</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('health')"
+          href="#"
+          >Health</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('style')"
+          href="#"
+          >Style</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('travel')"
+          href="#"
+          >Travel</a
+        >
       </nav>
     </div>
   </div>
@@ -86,7 +133,7 @@
 </template>
 
 <script>
-import { RouterView } from "vue-router";
+import { RouterView, RouterLink } from "vue-router";
 export default {
   computed: {
     activeMenu() {
