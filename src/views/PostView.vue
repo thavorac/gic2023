@@ -1,9 +1,11 @@
 <template>
   <article class="blog-post">
     <h2 class="display-5 link-body-emphasis mb-1">
-      {{ this.$route.params.newsId }}
+      {{ newsDetail.title }}
     </h2>
-    <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
+    <p class="blog-post-meta">
+      {{ newsDetail.releaseDate }} by <a href="#">{{ newsDetail.author }}</a>
+    </p>
 
     <p>
       This blog post shows a few different types of content that’s supported and
@@ -127,3 +129,17 @@
     </p>
   </article>
 </template>
+
+<script>
+import { useNewsStore } from "../store/newsStore";
+import { mapState } from "pinia";
+export default {
+  name: "PostView",
+  computed: {
+    ...mapState(useNewsStore, ["news"]),
+    newsDetail() {
+      return this.news.find((el) => el.id == this.$route.params.newsId);
+    },
+  },
+};
+</script>
