@@ -27,7 +27,10 @@
             This is a wider card with supporting text below as a natural lead-in
             to additional content.
           </p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+          <a
+            href="/post/1"
+            class="icon-link gap-1 icon-link-hover stretched-link"
+          >
             Continue reading
             <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
           </a>

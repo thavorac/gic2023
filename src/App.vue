@@ -40,22 +40,31 @@
     <div class="nav-scroller py-1 mb-3 border-bottom">
       <nav class="nav nav-underline justify-content-between">
         <!-- option 1 -->
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'world',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="{ active: activeMenu == 'world' }"
-          href="#"
+          >World</RouterLink
         >
-          World
-        </a>
 
         <!-- option 2 -->
         <a
           v-if="$route.query.category == 'US'"
           class="nav-item nav-link link-body-emphasis active"
-          href="#"
+          href="/?category=US"
           >U.S.</a
         >
-        <a v-else class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
+        <a
+          v-else
+          class="nav-item nav-link link-body-emphasis"
+          href="/?category=US"
+          >U.S.</a
+        >
 
         <!-- option 3 -->
         <RouterLink
@@ -76,53 +85,93 @@
           :class="isMenuActive('design')"
           >Design</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'culture',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('culture')"
-          href="#"
-          >Culture</a
+          >Culture</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'business',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('business')"
-          href="#"
-          >Business</a
+          >Business</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'politics',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('politics')"
-          href="#"
-          >Politics</a
+          >Politics</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'opinion',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('opinion')"
-          href="#"
-          >Opinion</a
+          >Opinion</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'science',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('science')"
-          href="#"
-          >Science</a
+          >Science</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'health',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('health')"
-          href="#"
-          >Health</a
+          >Health</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'style',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('style')"
-          href="#"
-          >Style</a
+          >Style</RouterLink
         >
-        <a
+        <RouterLink
+          :to="{
+            name: 'home',
+            query: {
+              category: 'travel',
+            },
+          }"
           class="nav-item nav-link link-body-emphasis"
           :class="isMenuActive('travel')"
-          href="#"
-          >Travel</a
+          >Travel</RouterLink
         >
       </nav>
     </div>
