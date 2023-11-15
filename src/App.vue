@@ -1,7 +1,3 @@
-<script>
-import { RouterView } from "vue-router";
-</script>
-
 <template>
   <div class="container">
     <header class="border-bottom lh-1 py-3">
@@ -43,12 +39,36 @@ import { RouterView } from "vue-router";
 
     <div class="nav-scroller py-1 mb-3 border-bottom">
       <nav class="nav nav-underline justify-content-between">
-        <a class="nav-item nav-link link-body-emphasis active" href="#"
-          >World</a
+        <!-- option 1 -->
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="{ active: activeMenu == 'world' }"
+          href="#"
         >
-        <a class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Technology</a>
-        <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
+          World
+        </a>
+
+        <!-- option 2 -->
+        <a
+          v-if="$route.query.category == 'US'"
+          class="nav-item nav-link link-body-emphasis active"
+          href="#"
+          >U.S.</a
+        >
+        <a v-else class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
+
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('technology')"
+          href="#"
+          >Technology</a
+        >
+        <a
+          class="nav-item nav-link link-body-emphasis"
+          :class="isMenuActive('design')"
+          href="#"
+          >Design</a
+        >
         <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
         <a class="nav-item nav-link link-body-emphasis" href="#">Business</a>
         <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
@@ -64,6 +84,25 @@ import { RouterView } from "vue-router";
     <RouterView />
   </main>
 </template>
+
+<script>
+import { RouterView } from "vue-router";
+export default {
+  computed: {
+    activeMenu() {
+      return this.$route.query.category;
+    },
+  },
+  methods: {
+    isMenuActive(menu) {
+      if (this.activeMenu == menu) {
+        return "active";
+      }
+      return "";
+    },
+  },
+};
+</script>
 
 <style>
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css");
