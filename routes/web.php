@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-//    $name = session('name');
-//    $token = session('token');
-//    if ($name) {
-//        return view('welcome', compact('name'));
-//    } else {
-//        session([
-//            'name' => 'Thavorac',
-//            'token', 'asdfafewrweasfasdf'
-//        ]);
-//        return view('welcome');
-//    }
 });
+
+Route::get('/register', [AuthController::class, 'showRegisterForm']);
+Route::get('/login', [AuthController::class, 'showLoginForm']);
+
+Route::get('/register_user_info', [AuthController::class, 'register']);
