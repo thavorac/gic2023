@@ -18,7 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', [AuthController::class, 'showRegisterForm']);
-Route::get('/login', [AuthController::class, 'showLoginForm']);
-
-Route::get('/register_user_info', [AuthController::class, 'register']);
+Route::get('/verify_otp', [AuthController::class, 'verifyOTP']);
