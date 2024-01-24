@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(Authorizer::class);
+        $this->middleware(Authorizer::class.":permission-c");
     }
 
     // -- GET /api/categories

@@ -14,10 +14,8 @@ class Authorizer
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $requiredPermission): Response
     {
-        $requiredPermission = "permission-c";
-
         // 1. Check request's owner
         $decoded = json_decode($request->header('token'));
         // 2. Check permissions of the request's owner
