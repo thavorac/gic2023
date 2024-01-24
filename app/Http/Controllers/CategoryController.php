@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Authorizer;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(Authorizer::class);
+    }
+
     // -- GET /api/categories
     public function getCategories() {
         $categories = Category::all();

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use \App\Http\Controllers\AuthController;
+use App\Http\Middleware\Authorizer;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,13 @@ Route::post('/login', [AuthController::class, 'login']);
 // -- Category api urls
 Route::get('/categories', [CategoryController::class, 'getCategories']);
 Route::post('/categories', [CategoryController::class, 'createCategory']);
+//Route::group([
+//    'middleware' => 'api',
+//    'prefix' => 'auth'
+//], function ($router) {
+//    Route::post('/categories', [CategoryController::class, 'createCategory']);
+//});
+
 Route::get('/categories/{categoryId}', [CategoryController::class, 'getCategory']);
 Route::patch('/categories/{categoryId}', [CategoryController::class, 'updateCategory']);
 Route::delete('/categories/{categoryId}', [CategoryController::class, 'deleteCategory']);
