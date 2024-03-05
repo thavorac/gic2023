@@ -30,3 +30,12 @@ Route::get('/', function () {
 });
 
 Route::get("/verify_otp", [AuthenticationController::class, 'verifyOTP']);
+Route::get("/home", function() {
+    $menus = ["Home", "Product", "Category", "Blog"];
+    $title = "Awesome App";
+    $purchasedItems = ["Book", "Pencil", "Eraser"];
+    $favoriteItems = ["Calculator", "Bag"];
+
+    //return view("frontend.home", compact("menus", "title", "purchasedItems"));
+    return view("frontend.home", ["menus" => $menus, "title" => $title, "purchasedItems" => $purchasedItems]);
+});
