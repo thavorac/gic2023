@@ -50,6 +50,14 @@
                 <div class="right-side">
                     <div class="favorite-items bordered">
                         Favorite Items content
+
+                        <?php $i = 0; ?>
+                        <ol>
+                            @while ($i < sizeof($favoriteItems))
+                                <li>{{$favoriteItems[$i]}}</li>
+                                <?php $i = $i +1; ?>
+                            @endwhile
+                        </ol>
                     </div>
                     <div class="purchased-items bordered">
                         Purchased Items content

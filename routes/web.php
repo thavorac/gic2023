@@ -37,5 +37,5 @@ Route::get("/home", function() {
     $favoriteItems = ["Calculator", "Bag"];
 
     //return view("frontend.home", compact("menus", "title", "purchasedItems"));
-    return view("frontend.home", ["menus" => $menus, "title" => $title, "purchasedItems" => $purchasedItems]);
+    return view("frontend.home", ["menus" => $menus, "title" => $title, "purchasedItems" => $purchasedItems, "favoriteItems" => $favoriteItems]);
 });
