@@ -1,0 +1,55 @@
+<html>
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <div class="container portfolio">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading">
+            <img src="https://image.ibb.co/cbCMvA/logo.png" />
+          </div>
+        </div>
+      </div>
+      <div class="bio-info">
+        <div class="row">
+          <h1>Portfolio Form</h1>
+        </div>
+        <br /><br />
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"
+              ><i class="fas fa-user-tie"></i
+            ></span>
+          </div>
+          <input type="text" name="" class="form-control" placeholder="Name" />
+        </div>
+        <br />
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"
+              ><i class="fas fa-user-tie"></i
+            ></span>
+          </div>
+          <textarea class="form-control" placeholder="Description"></textarea>
+        </div>
+        <br />
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-key icon"></i></span>
+          </div>
+          <input type="text" name="" class="form-control" placeholder="Note" />
+        </div>
+        <br />
+        <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-off"></span> Cancel
+        </button>
+        <button type="submit" class="btn btn-success">
+          <span class="glyphicon glyphicon-off"></span> Save
+        </button>
+      </div>
+    </div>
+    <%- include('../partials/foot.ejs') %>
+  </body>
+</html>

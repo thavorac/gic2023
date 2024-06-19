@@ -1,0 +1,6 @@
+{
+  "type": "sqlite",
+  "database": "portfolio.sql",
+  "entities": ["src/entity/*.entity{.ts,.js}"],
+  "synchronize": true
+}
