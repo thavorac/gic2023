@@ -32,12 +32,10 @@ export default {
     function clearAllTodos() {
       store.clearAll();
     }
-    const { nbOfTodo } = mapState(useTodoStore, {
-      nbOfTodo: "countTodos",
-    });
+    const nbOfTodo = computed(() => store.countTodos);
     return {
       store,
-      nbOfTodo: computed(() => nbOfTodo.value),
+      nbOfTodo,
       handleAddTodo,
       clearAllTodos,
     };

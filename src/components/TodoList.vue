@@ -29,7 +29,8 @@ export default {
     onMounted(() => {
       todoStore.fetchTodos();
     });
-    const { todos, countTodo } = mapState(todoStore, ["todos", "countTodos"]);
+    const todos = computed(() => todoStore.todos);
+    const countTodos = computed(() => todoStore.countTodos);
     const completedTasks = computed(() => {
       if (todos.value) {
         return todos.value.filter((todo) => todo.status == "completed");
@@ -42,7 +43,14 @@ export default {
       }
       return [];
     });
-    return { todoStore, color, todos, countTodo, completedTasks, pendingTasks };
+    return {
+      todoStore,
+      color,
+      todos,
+      countTodos,
+      completedTasks,
+      pendingTasks,
+    };
   },
   name: "TodoList",
   props: ["status"],
