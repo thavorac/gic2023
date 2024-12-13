@@ -17,6 +17,7 @@
 </template>
 <script>
 import { mapState } from "pinia";
+import { computed } from "vue";
 import AddTodo from "./components/AddTodo.vue";
 import TodoLists from "./components/TodoList.vue";
 
@@ -25,27 +26,25 @@ export default {
   name: "App",
   setup() {
     const store = useTodoStore();
+    function handleAddTodo(todo) {
+      store.addTodo(todo);
+    }
+    function clearAllTodos() {
+      store.clearAll();
+    }
+    const { nbOfTodo } = mapState(useTodoStore, {
+      nbOfTodo: "countTodos",
+    });
     return {
       store,
+      nbOfTodo: computed(() => nbOfTodo.value),
+      handleAddTodo,
+      clearAllTodos,
     };
   },
   components: {
     AddTodo,
     TodoLists,
-  },
-  computed: {
-    ...mapState(useTodoStore, {
-      nbOfTodo: "countTodos",
-    }),
-  },
-  methods: {
-    handleAddTodo(todo) {
-      this.store.addTodo(todo);
-    },
-    clearAllTodos() {
-      console.log("clear");
-      this.store.clearAll();
-    },
   },
 };
 </script>
