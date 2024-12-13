@@ -17,6 +17,7 @@
   </ul>
 </template>
 <script>
+import { onMounted, computed } from "vue";
 import { mapState } from "pinia";
 import TodoItem from "./TodoItem.vue";
 import { useTodoStore } from "../stores/todo";
@@ -24,39 +25,29 @@ import { useTodoStore } from "../stores/todo";
 export default {
   setup() {
     const todoStore = useTodoStore();
-    return { todoStore };
+    const color = "red";
+    onMounted(() => {
+      todoStore.fetchTodos();
+    });
+    const { todos, countTodo } = mapState(todoStore, ["todos", "countTodos"]);
+    const completedTasks = computed(() => {
+      if (todos.value) {
+        return todos.value.filter((todo) => todo.status == "completed");
+      }
+      return [];
+    });
+    const pendingTasks = computed(() => {
+      if (todos.value) {
+        return todos.value.filter((todo) => todo.status == "pending");
+      }
+      return [];
+    });
+    return { todoStore, color, todos, countTodo, completedTasks, pendingTasks };
   },
   name: "TodoList",
   props: ["status"],
   components: {
     TodoItem,
-  },
-  data() {
-    return {
-      color: "red",
-    };
-  },
-  async mounted() {
-    // we will call action fetchTodos
-    await this.todoStore.fetchTodos();
-  },
-  computed: {
-    ...mapState(useTodoStore, ["todos", "countTodos"]),
-    completedTasks() {
-      if (this.todos) {
-        return this.todos.filter((todo) => todo.status == "completed");
-      }
-      return [];
-    },
-    pendingTasks() {
-      if (this.todos) {
-        // if (this.todos.length > 2) {
-        //   this.todos.push({ task: "new" });
-        // }
-        return this.todos.filter((todo) => todo.status == "pending");
-      }
-      return [];
-    },
   },
   watch: {
     todos: {
